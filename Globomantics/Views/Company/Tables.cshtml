@@ -1,0 +1,29 @@
+﻿@using Shared.Models
+@model IEnumerable<CompanyModel>
+
+
+
+<div class="row">
+    <div class="col-md-10 offset-md-2">
+        <table class="table">
+            <tr>
+                <th>Full name</th>
+                <th>Citizenship</th>
+                <th>Birth date</th>
+                <th>Residence and address</th>
+                <th>Email</th>
+                <th>Phone number</th>
+                <th>Basis of representation</th>
+                <th>Company name</th>
+                <th>Legal status</th>
+                <th>Client id</th>
+                <th>Company id</th>
+                <th>Representative id</th>
+                <th>CEO id</th>
+                <th>UBO id</th>
+            </tr>
+            @Html.DisplayForModel()
+        </table>
+    </div>
+</div>
+

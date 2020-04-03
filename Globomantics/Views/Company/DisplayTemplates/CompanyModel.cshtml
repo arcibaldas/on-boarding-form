@@ -1,0 +1,28 @@
+﻿
+@model Shared.Models.CompanyModel
+    <tr>
+        <td>@Model.Name @Model.Surname</td>
+        <td>@Model.Citizenship</td>
+        <td>@Model.BirthDate.ToString("ddd d MMM")</td>
+        <td>@Model.CountryOfResidence @Model.Address</td>
+        <td>@Model.Email</td>
+        <td>@Model.PhoneNumber</td>
+        <td>@Model.BasisfOfRepresentation</td>
+        <td>@Model.CompanyName</td>
+        <td>@Model.LegalStatus</td>
+        <td>@Model.Id</td>
+        <td>@Model.CompanyId</td>
+        <td>@Model.RepresentativeId</td>
+        <td>@Model.CeoId</td>
+        <td>@Model.UboId</td>
+
+
+        <td>
+            <a asp-controller="Client" asp-action="Index" asp-route-Id="@Model.CompanyId">Users</a>
+        </td>
+
+        <td>
+            <a asp-controller="Client" asp-action="Delete">Delete</a>
+        </td>
+
+    </tr>

@@ -1,0 +1,26 @@
+﻿@using Shared.Models
+@model IEnumerable<ClientModel>
+    
+<div class="row">
+    <div class="col-md-10 offset-md-2">
+        <table class="table">
+            <tr>
+                <th>Full name</th>
+                <th>Citizenship</th>
+                <th>Birth date</th>
+                <th>Residence and address</th>
+                <th>Email</th>
+                <th>Phone number</th>
+                <th>Basis of representation</th>
+                <th>Actions</th>
+            </tr>
+            @Html.DisplayForModel()
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <a asp-controller="Company" asp-action="AddCompany">Add new user/company</a>
+    </div>
+</div>
+

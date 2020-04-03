@@ -1,0 +1,40 @@
+﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" asp-href-include="css/*" asp-href-exclude="css/all.min.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" asp-href-include="css/all.min.css" />
+    </environment>
+</head>
+<body>
+    <div class="container h-100">
+        <div class="row">
+            <div class="col mt-9 d-none d-sm-block">
+            </div>
+            <div class="col mt-2 d-sm-none">
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="row">
+
+                    <div class="col-12">
+                        &nbsp;
+                    </div>
+                    <div class="col col-login mx-auto">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
