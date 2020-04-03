@@ -29,6 +29,7 @@ namespace Globomantics.Controllers
 
         public async Task<IActionResult> Index()
         {
+
             ViewBag.Title = "Companies";
             return View(await companyService.GetAll());
         }
@@ -44,10 +45,13 @@ namespace Globomantics.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCompanyRepresentative(CompanyModel model)
         {
+
+            model.isSumbitted = false;
             if (ModelState.IsValid)
             {
                 await companyService.AddCompanyRepresentative(model);
-
+                
+                model.isSumbitted = true;
                 return RedirectToAction("Index");
             }
             else

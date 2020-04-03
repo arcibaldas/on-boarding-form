@@ -37,12 +37,16 @@
                                 <div class="form-group">
                                     <input asp-for="@Model.Name" type="text" class="form-control" placeholder="First Name *" />
                                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default">?</button>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <input asp-for="@Model.Surname" type="text" class="form-control" placeholder="Last Name *" />
                                     @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
+                                    <label asp-for="@Model.PersonalCode class=" form-label">Personal code</label>
                                     <input asp-for="@Model.PersonalCode" class="form-control" placeholder="Personal Code *" />
                                     @Html.ValidationMessageFor(model => model.PersonalCode, "", new { @class = "text-danger" })
                                 </div>
@@ -157,6 +161,7 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label asp-for="@Model.RegistrationCode class=" form-label">Company code/Registration code</label>
                                     <input asp-for="@Model.RegistrationCode" class="form-control" placeholder="Company code/registration code *" />
                                     @Html.ValidationMessageFor(model => model.RegistrationCode, "", new { @class = "text-danger" })
                                 </div>
@@ -213,12 +218,12 @@
 
                                 <div class="form-group">
                                     <label class="form-label" asp-for="@Model.LastYearTurnover">Last year's turnover</label>
-                                    <input asp-for="@Model.LastYearTurnover" class="form-control" />
+                                    <input asp-for="@Model.LastYearTurnover" class="form-control" placeholder="Last year's turnover"/>
                                     @Html.ValidationMessageFor(model => model.LastYearTurnover, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" asp-for="@Model.NextYearTurnover">Estimated next year's turnover</label>
-                                    <input asp-for="@Model.NextYearTurnover" class="form-control" />
+                                    <input asp-for="@Model.NextYearTurnover" class="form-control" placeholder="Estimated next year's turnover"/>
                                     @Html.ValidationMessageFor(model => model.NextYearTurnover, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">

@@ -21,7 +21,7 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Personal code is invalid")]
-        [Range(10000000000,99999999999,ErrorMessage ="Code must be 11 digits")]
+        [Range(10000000000,99999999999,ErrorMessage ="Personal code is too short")]
         public long PersonalCode { get; set; }
 
 
@@ -51,8 +51,8 @@ namespace Shared.Models
 
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[+]+[0-9]+$", ErrorMessage = "Number form is (+370)+digits")]
-        [MaxLength(12,ErrorMessage ="Phone number should be 10 digits")]
+        [RegularExpression(@"^[+]+[0-9]+$", ErrorMessage = "Number form is country code and digits")]
+        [MaxLength(12, ErrorMessage = "Phone number is too long")]
         public string PhoneNumber { get; set; }
 
         [StringLength(100)]

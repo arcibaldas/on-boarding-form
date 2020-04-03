@@ -85,6 +85,7 @@ namespace Globomantics.Services
 
         public Task<IEnumerable<CompanyModel>> GetAll()
         {
+            
             return Task.Run(() => companies.AsEnumerable());
         }
 

@@ -8,7 +8,11 @@ namespace Shared.Models
 {
     public class CompanyModel : ClientModel
     {
-        
+
+        public CompanyModel()
+        {
+            IncorporationDate = DateTime.Now;
+        }
         public int CompanyId { get; set; }
         [Required(ErrorMessage ="The field is required")]
         [RegularExpression(@"^[a-zA-Z\s]{1,}", ErrorMessage = "Please insert valid name")]
@@ -32,13 +36,13 @@ namespace Shared.Models
         public string PhysicalAddress { get; set; }
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Personal code is invalid")]
-        [Range(10000000000, 99999999999, ErrorMessage = "Code must be 11 digits")]
+        [Range(10000000000, 99999999999, ErrorMessage = "Registration code is too short")]
         public long RegistrationCode { get; set; }
         
         public DateTime IncorporationDate { get; set; }
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[+]+[0-9]+$", ErrorMessage = "Number form is (+370)+digits")]
-        [MaxLength(12, ErrorMessage = "Phone number should be 10 digits")]
+        [RegularExpression(@"^[+]+[0-9]+$", ErrorMessage = "Number form is country code and digits")]
+        [MaxLength(12, ErrorMessage = "Phone number is too long")]
         public string CompanyPhoneNumber { get; set; }
         [Required(ErrorMessage = "The field is required")]
         [EmailAddress]
