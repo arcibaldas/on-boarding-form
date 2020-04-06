@@ -128,7 +128,7 @@
                         </form>
                     @if (Model.isSubmitted)
                     {
-                        <a class="btnGoNext" asp-controller="Company" asp-action="AddCompany" asp-route-Id="@Model.Id">Proceed to company information</a>
+                        <a class="btnGoNext" asp-controller="UBO" asp-action="AddCompanyUBO" asp-route-Id="@Model.UboId">Proceed to company information</a>
                     }
                 </div>
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
