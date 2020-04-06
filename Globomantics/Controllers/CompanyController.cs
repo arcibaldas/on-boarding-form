@@ -46,12 +46,12 @@ namespace Globomantics.Controllers
         public async Task<IActionResult> AddCompanyRepresentative(CompanyModel model)
         {
 
-            model.isSumbitted = false;
+            model.isSubmitted = false;
             if (ModelState.IsValid)
             {
                 await companyService.AddCompanyRepresentative(model);
                 
-                model.isSumbitted = true;
+                model.isSubmitted = true;
                 return RedirectToAction("Index");
             }
             else

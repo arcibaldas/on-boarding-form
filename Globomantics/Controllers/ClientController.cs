@@ -29,18 +29,25 @@ namespace Globomantics.Controllers
 
         public IActionResult Add()
         {
-            ViewBag.Title = "Register new Corporate Client";
+            ViewBag.Title = "Register new UBO Client";
             return View(new ClientModel());
         }
 
         [HttpPost]
         public async Task<IActionResult> Add(ClientModel model)
         {
-            var state = true;
+            
+
             if (ModelState.IsValid)
             {
+                
                 await clientService.Add(model);
-                model.isSumbitted = state;
+
+                if (model.UserCounter > 4)
+                {
+                    model.isSubmitted = false;
+                }
+
                 return View(model);
             }
             else

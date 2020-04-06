@@ -102,6 +102,19 @@
                                     <textarea asp-for="@Model.BasisfOfRepresentation" class="form-control" rows="5" placeholder="Basis of representation"></textarea>
                                     @Html.ValidationMessageFor(model => model.BasisfOfRepresentation, "", new { @class = "text-danger" })
                                 </div>
+                                <div class="form-group">
+                                    <label class="form-label">Please indicate if this person is politically exposed person, immediate member of politically exposed person or/and close associate of politically exposed person</label>
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="true">
+                                            <span> Yes </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="false">
+                                            <span>No </span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -184,7 +197,7 @@
                                     <label class="form-label">Does company provide financial services?</label>
                                     <div class="maxl">
                                         <label class="radio inline">
-                                            <input asp-for="@Model.Services" type="radio" name="gender" value="true">
+                                            <input asp-for="@Model.Services" type="radio" name="gender" value="true" >
                                             <span> Yes </span>
                                         </label>
                                         <label class="radio inline">

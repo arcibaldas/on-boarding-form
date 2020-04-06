@@ -21,13 +21,13 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Personal code is invalid")]
-        [Range(10000000000,99999999999,ErrorMessage ="Personal code is too short")]
+        [Range(10000000000, 99999999999, ErrorMessage = "Personal code is too short")]
         public long PersonalCode { get; set; }
 
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert valid name")]
-        [MinLength(2,ErrorMessage ="Name is too short")]
+        [MinLength(2, ErrorMessage = "Name is too short")]
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public string Citizenship { get; set; }
@@ -36,10 +36,10 @@ namespace Shared.Models
 
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[a-zA-Z]+\s[0-9]+$",ErrorMessage ="Please inesert street name and number of the house")]
+        [RegularExpression(@"^[a-zA-Z]+\s[0-9]+$", ErrorMessage = "Please inesert street name and number of the house")]
         [MinLength(3, ErrorMessage = "Name is too short")]
         public string Address { get; set; }
-        
+
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert valid surname")]
         [MinLength(2, ErrorMessage = "Name is too short")]
@@ -58,11 +58,16 @@ namespace Shared.Models
         [StringLength(100)]
         public string BasisfOfRepresentation { get; set; }
 
-        public bool isSumbitted { get; set; } = false;
+        public bool isSubmitted { get; set; } = true;
 
         public string Occupation { get; set; }
 
         public string SharesOwned { get; set; }
+
+      
+        public bool Politics { get; set; }
+
+        public int UserCounter { get; set; } = 0;
 
     }
 }

@@ -1,7 +1,6 @@
 ﻿@using Shared.Models
 @using System.ComponentModel.DataAnnotations;
 @model ClientModel
-
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -18,94 +17,117 @@
         <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Corporate</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Corporate</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">CEO</a>
                 </li>
+                <li class="nav-item">
+
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">UBO</a>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
-                        <h3 class="register-heading">Corporate Client Registration</h3>
-                    <form asp-action="Add" class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input asp-for="Name" type="text" class="form-control" placeholder="First Name *" />
-                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <input asp-for="Surname" type="text" class="form-control" placeholder="Last Name *" />
-                                @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <input asp-for="PersonalCode" class="form-control" placeholder="Personal Code *" />
-                                @Html.ValidationMessageFor(model => model.PersonalCode, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" asp-for="BirthDate">Birth date</label>
-                                <input class="form-control" type="date" asp-for="BirthDate" />
-                            </div>
+                        <h3 class="register-heading">UBO Registration</h3>
+                        <form asp-action="Add" class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input asp-for="@Model.Name" type="text" class="form-control" placeholder="First Name *" />
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.Surname" type="text" class="form-control" placeholder="Last Name *" />
+                                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="@Model.PersonalCode class=" form-label">Personal code</label>
+                                    <input asp-for="@Model.PersonalCode" class="form-control" placeholder="Personal Code *" />
+                                    @Html.ValidationMessageFor(model => model.PersonalCode, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" asp-for="BirthDate">Birth date</label>
+                                    <input class="form-control" type="date" asp-for="BirthDate" />
+                                </div>
 
-                            <div class="form-group">
-                                <label asp-for="Citizenship" class="form-label">Citizenship</label>
-                                <select asp-for="Citizenship " class="form-control custom-select">
-                                    <option value='Ascension Island'>Ascension Island</option>
-                                    <option value='Andorra'>Andorra</option>
-                                    <option value='United Arab Emirates'>United Arab Emirates</option>
-                                    <option value='Afghanistan'>Afghanistan</option>
-                                    <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
-                                    <option value='Anguilla'>Anguilla</option>
-                                    <option value='Albania'>Albania</option>
-                                    <option value='Armenia'>Armenia</option>
-                                    <option value='Angola'>Angola</option>
-                                    <option value='Antarctica'>Antarctica</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label asp-for="Citizenship" class="form-label">Citizenship</label>
+                                    <select asp-for="Citizenship " class="form-control custom-select">
+                                        <option value='Ascension Island'>Ascension Island</option>
+                                        <option value='Andorra'>Andorra</option>
+                                        <option value='United Arab Emirates'>United Arab Emirates</option>
+                                        <option value='Afghanistan'>Afghanistan</option>
+                                        <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
+                                        <option value='Anguilla'>Anguilla</option>
+                                        <option value='Albania'>Albania</option>
+                                        <option value='Armenia'>Armenia</option>
+                                        <option value='Angola'>Angola</option>
+                                        <option value='Antarctica'>Antarctica</option>
+                                    </select>
+                                </div>
 
-
-                            <div class="form-group">
-                                <label class="form-label">Does company provide financial services?</label>
-                                <div class="maxl">
-                                    <label class="radio inline">
-                                        <input type="radio" name="gender" value="Yes" checked>
-                                        <span> Yes </span>
-                                    </label>
-                                    <label class="radio inline">
-                                        <input type="radio" name="gender" value="No">
-                                        <span>No </span>
-                                    </label>
+                                <div class="form-group">
+                                    <label asp-for="@Model.CountryOfResidence class=" form-label">Country of residence</label>
+                                    <select asp-for="@Model.CountryOfResidence " class="form-control custom-select">
+                                        <option value='Ascension Island'>Ascension Island</option>
+                                        <option value='Andorra'>Andorra</option>
+                                        <option value='United Arab Emirates'>United Arab Emirates</option>
+                                        <option value='Afghanistan'>Afghanistan</option>
+                                        <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
+                                        <option value='Anguilla'>Anguilla</option>
+                                        <option value='Albania'>Albania</option>
+                                        <option value='Armenia'>Armenia</option>
+                                        <option value='Angola'>Angola</option>
+                                        <option value='Antarctica'>Antarctica</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                            <div class="col-md-6">
 
-                            <div class="form-group">
-                                <input asp-for="Address" type="text" class="form-control" placeholder="Your Address *" />
-                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <input asp-for="Email" type="email" class="form-control" placeholder="Your Email *" />
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="Your Phone *" />
-                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <textarea asp-for="BasisfOfRepresentation" class="form-control" rows="5" placeholder="Basis of representation"></textarea>
-                                @Html.ValidationMessageFor(model => model.BasisfOfRepresentation, "", new { @class = "text-danger" })
-                            </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.Address" type="text" class="form-control" placeholder="Your Address *" />
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.PhoneNumber" type="text" class="form-control" placeholder="Your Phone *" />
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <textarea asp-for="@Model.SharesOwned" class="form-control" rows="5" placeholder="Part of shares owned "></textarea>
+                                    @Html.ValidationMessageFor(model => model.SharesOwned, "", new { @class = "text-danger" })
+                                </div>
 
-                            @if (!Model.isSumbitted)
-                            {
-                                <input type="submit" class="btnRegister" value="Sumbit" />
-                            }
+                                <div class="form-group">
+                                    <label class="form-label">Please indicate if this person is politically exposed person, immediate member of politically exposed person or/and close associate of politically exposed person</label>
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="true">
+                                            <span> Yes </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="false">
+                                            <span>No </span>
+                                        </label>
+                                    </div>
+                                </div>
 
-                        </div>
-                    </form>
-                    @if (Model.isSumbitted)
+                                @if (Model.isSubmitted)
+                                {
+                                    <input type="submit" class="btnRegister" value="Add user" />
+                                }
+                                else
+                                {
+                                    <p><b>Maximum of users is created</b></p>
+                                }
+
+                            </div>
+                        </form>
+                    @if (Model.isSubmitted)
                     {
-                        <p>Form is submitted</p>
                         <a class="btnGoNext" asp-controller="Company" asp-action="AddCompany" asp-route-Id="@Model.Id">Proceed to company information</a>
                     }
                 </div>

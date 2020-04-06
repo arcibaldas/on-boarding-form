@@ -103,6 +103,20 @@
                                     <textarea asp-for="@Model.Occupation" class="form-control" rows="5" placeholder="Occupation"></textarea>
                                     @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-danger" })
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Please indicate if this person is politically exposed person, immediate member of politically exposed person or/and close associate of politically exposed person</label>
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="true">
+                                            <span> Yes </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="false">
+                                            <span>No </span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

@@ -18,6 +18,15 @@ namespace Globomantics.Services
         public Task Add(ClientModel model)
         {
             model.Id = clients.Max(c => c.Id) + 1;
+            model.UserCounter = clients.Max(c => c.UserCounter) + 1;
+            if(model.UserCounter==6)
+            {
+                for (var i = 1; i <= 6; i++)
+                {
+                    clients.RemoveAll(p => p.UserCounter == i);
+                }
+            model.UserCounter = clients.Max(c => c.UserCounter) + 1;
+            }
             clients.Add(model);
             return Task.CompletedTask;
         }
