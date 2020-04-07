@@ -1,0 +1,185 @@
+﻿@using Shared.Models
+@using System.ComponentModel.DataAnnotations;
+@model ClientModel
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img img src="~/img/nasa.png" class="login-logo" alt="" />
+            <h3>Welcome</h3>
+            <p>To Pyrros</p>
+            <p>
+                <b>
+                    Pyrros group is a fully licensed eMoney institution
+                    regulated by the Central Bank of Lithuania.
+                </b>
+            </p>
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Corporate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">CEO</a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">UBO</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">CEO Registration</h3>
+                    <form asp-action="AddCompanyCEO" class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select asp-for="@Model.Gender" class="form-control custom-select">
+                                    <option value='Mr'>Mr.</option>
+                                    <option value='Ms'>Ms.</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.Name" type="text" class="form-control" placeholder="First Name *" />
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.Surname" type="text" class="form-control" placeholder="Last Name *" />
+                                @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.PersonalCode class=" form-label">Personal code</label>
+                                <input asp-for="@Model.PersonalCode" class="form-control" placeholder="Personal Code *" />
+                                @Html.ValidationMessageFor(model => model.PersonalCode, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" asp-for="BirthDate">Birth date</label>
+                                <input class="form-control" type="date" asp-for="BirthDate" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Citizenship" class="form-label">Citizenship</label>
+                                <select asp-for="Citizenship " class="form-control custom-select">
+                                    <option value='Ascension Island'>Ascension Island</option>
+                                    <option value='Andorra'>Andorra</option>
+                                    <option value='United Arab Emirates'>United Arab Emirates</option>
+                                    <option value='Afghanistan'>Afghanistan</option>
+                                    <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
+                                    <option value='Anguilla'>Anguilla</option>
+                                    <option value='Albania'>Albania</option>
+                                    <option value='Armenia'>Armenia</option>
+                                    <option value='Angola'>Angola</option>
+                                    <option value='Antarctica'>Antarctica</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="@Model.CountryOfResidence class=" form-label">Country of residence</label>
+                                <select asp-for="@Model.CountryOfResidence " class="form-control custom-select">
+                                    <option value='Ascension Island'>Ascension Island</option>
+                                    <option value='Andorra'>Andorra</option>
+                                    <option value='United Arab Emirates'>United Arab Emirates</option>
+                                    <option value='Afghanistan'>Afghanistan</option>
+                                    <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
+                                    <option value='Anguilla'>Anguilla</option>
+                                    <option value='Albania'>Albania</option>
+                                    <option value='Armenia'>Armenia</option>
+                                    <option value='Angola'>Angola</option>
+                                    <option value='Antarctica'>Antarctica</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <input asp-for="@Model.Address" type="text" class="form-control" placeholder="Your Address *" />
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.PhoneNumber" type="text" class="form-control" placeholder="Your Phone *" />
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <textarea asp-for="@Model.Occupation" class="form-control" rows="5" placeholder="Occupation "></textarea>
+                                @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Please indicate if this person is politically exposed person, immediate member of politically exposed person or/and close associate of politically exposed person</label>
+                                <div class="maxl">
+                                    <label class="radio inline">
+                                        <input asp-for="@Model.Politics" type="radio" name="gender" value="true">
+                                        <span> Yes </span>
+                                    </label>
+                                    <label class="radio inline">
+                                        <input asp-for="@Model.Politics" type="radio" name="gender" value="false">
+                                        <span>No </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            @if (!Model.isSubmitted)
+                            {
+                                <input type="submit" class="btnRegister" value="Submit" />
+                            }
+                            else
+                            {
+                                <p><b>CEO added successufuly</b></p>
+                            }
+
+                        </div>
+                    </form>
+                    @if (Model.isSubmitted)
+                    {
+                        <a class="btnGoNext" asp-action="AddCompanyUBO" >Proceed to company information</a>
+                    }
+                </div>
+                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3 class="register-heading">Apply as a Hirer</h3>
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="First Name *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option class="hidden" selected disabled>Please select your Sequrity Question</option>
+                                    <option>What is your Birthdate?</option>
+                                    <option>What is Your old Phone Number</option>
+                                    <option>What is your Pet Name?</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                            </div>
+                            <input type="submit" class="btnRegister" value="Register" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

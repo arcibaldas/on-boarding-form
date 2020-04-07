@@ -6,12 +6,13 @@ namespace Globomantics.Services
 {
     public interface IClientService
     {
-        Task<IEnumerable<ClientModel>> GetAll(int id);
+        Task<IEnumerable<ClientModel>> GetAll();
         Task<ClientModel> GetById(int id);
 
        
         //Task<StatisticsModel> GetStatistics();
-        Task Add(ClientModel model);
+        Task AddCompanyUBO(ClientModel model);
+        Task AddCompanyCEO(ClientModel model);
         Task Delete(ClientModel model);
         
     }

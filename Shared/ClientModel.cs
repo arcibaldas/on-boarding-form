@@ -45,6 +45,8 @@ namespace Shared.Models
         [MinLength(2, ErrorMessage = "Name is too short")]
         public string Surname { get; set; }
 
+        public string Gender { get; set; }
+
         [Required(ErrorMessage = "The field is required")]
         [EmailAddress]
         public string Email { get; set; }
@@ -58,7 +60,7 @@ namespace Shared.Models
         [StringLength(100)]
         public string BasisfOfRepresentation { get; set; }
 
-        public bool isSubmitted { get; set; } = true;
+        public bool isSubmitted { get; set; } = false;
 
         public string Occupation { get; set; }
 

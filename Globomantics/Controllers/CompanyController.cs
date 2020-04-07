@@ -52,7 +52,7 @@ namespace Globomantics.Controllers
                 await companyService.AddCompanyRepresentative(model);
                 
                 model.isSubmitted = true;
-                return RedirectToAction("Index");
+                return View(model);
             }
             else
             {
@@ -60,28 +60,7 @@ namespace Globomantics.Controllers
 }
         }
 
-        public IActionResult AddCompanyCEO()
-        {
-
-            ViewBag.Title = "Add Company";
-            return View(new CompanyModel());
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddCompanyCEO(CompanyModel model)
-        {
-            
-            if (ModelState.IsValid)
-            {
-                await companyService.AddCompanyCEO(model);
-
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(model);
-            }
-        }
+      
 
         public IActionResult AddCompanyUBO()
         {

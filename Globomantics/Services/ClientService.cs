@@ -15,18 +15,18 @@ namespace Globomantics.Services
             clients.Add(new ClientModel { Id = 1, Name = "Artur!", Surname="Skuratovič", Email="skura@one.lt", PhoneNumber="+37067949473", Citizenship = "Russian", BirthDate = new DateTime(2017, 8, 12), Address = "Vaiku" ,CountryOfResidence="Lithuania",BasisfOfRepresentation= "Occupation or power of attorney" });
             clients.Add(new ClientModel { Id = 2, Name = "GeekConf", Surname = "Skuratovič", Email = "skura@one.lt", PhoneNumber = "+37067949473", Citizenship = "USA", BirthDate = new DateTime(2017, 10, 18), Address = "Zmoniu", CountryOfResidence="Poland",BasisfOfRepresentation= "Occupation or power of attorney" });
         }
-        public Task Add(ClientModel model)
+        public Task AddCompanyUBO(ClientModel model)
         {
             model.Id = clients.Max(c => c.Id) + 1;
-            model.UserCounter = clients.Max(c => c.UserCounter) + 1;
-            if(model.UserCounter==6)
-            {
-                for (var i = 1; i <= 6; i++)
-                {
-                    clients.RemoveAll(p => p.UserCounter == i);
-                }
-            model.UserCounter = clients.Max(c => c.UserCounter) + 1;
-            }
+            model.UboId = clients.Max(c => c.UboId) + 1;
+            clients.Add(model);
+            return Task.CompletedTask;
+        }
+
+        public Task AddCompanyCEO(ClientModel model)
+        {
+            model.Id = clients.Max(c => c.Id) + 1;
+            model.CeoId = clients.Max(c => c.UboId) + 1;
             clients.Add(model);
             return Task.CompletedTask;
         }
@@ -38,9 +38,9 @@ namespace Globomantics.Services
             return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<ClientModel>> GetAll(int id)
+        public Task<IEnumerable<ClientModel>> GetAll()
         {
-            return Task.Run(() => clients.Where(p => p.Id == id).AsEnumerable());
+            return Task.Run(() => clients.AsEnumerable());
         }
 
         public Task<ClientModel> GetById(int id)

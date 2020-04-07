@@ -19,35 +19,29 @@ namespace Globomantics.Controllers
             this.clientService = clientService;
         }
 
-        public async Task<IActionResult> Index(int Id)
+        public async Task<IActionResult> Index()
         {
-            var member = await companyService.GetById(Id);
-            ViewBag.Title = $"Users of company {member.Name} ";
-
-            return View(await clientService.GetAll(Id));
+            ViewBag.Title = "Conferences";
+            return View(await clientService.GetAll());
         }
 
-        public IActionResult Add()
+        public IActionResult AddCompanyUBO()
         {
-            ViewBag.Title = "Register new UBO Client";
+
+            ViewBag.Title = "Add Company";
             return View(new ClientModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(ClientModel model)
+        public async Task<IActionResult> AddCompanyUBO(ClientModel model)
         {
-            
 
+            model.isSubmitted = false;
             if (ModelState.IsValid)
             {
                 
-                await clientService.Add(model);
-
-                if (model.UserCounter > 4)
-                {
-                    model.isSubmitted = false;
-                }
-
+                await clientService.AddCompanyUBO(model);
+                model.isSubmitted = true;
                 return View(model);
             }
             else
@@ -56,6 +50,29 @@ namespace Globomantics.Controllers
             }
         }
 
+        public IActionResult AddCompanyCEO()
+        {
+
+            ViewBag.Title = "Add Company";
+            return View(new ClientModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCompanyCEO(ClientModel model)
+        {
+            model.isSubmitted = false;
+            if (ModelState.IsValid)
+            {
+                await clientService.AddCompanyCEO(model);
+
+                model.isSubmitted = true;
+                return View(model);
+            }
+            else
+            {
+                return View(model);
+            }
+        }
         public async Task<IActionResult> Delete(ClientModel model)
         {
             if (ModelState.IsValid)
