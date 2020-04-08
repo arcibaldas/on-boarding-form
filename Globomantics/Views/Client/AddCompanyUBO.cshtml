@@ -1,6 +1,6 @@
 ﻿@using Shared.Models
 @using System.ComponentModel.DataAnnotations;
-@model ClientModel
+@model Shared.Models.ClientModel
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -114,16 +114,14 @@
                                     </label>
                                 </div>
                             </div>
+                            <input type="submit" class="btnRegister" value="Add user" />
 
                             @if (!Model.isSubmitted)
                             {
-                                <input type="submit" class="btnRegister" value="Add user" />
-                            }
-                            else
-                            {
+
                                 <p><b>User added</b></p>
                             }
-
+                           
                         </div>
                     </form>
                     @if (Model.isSubmitted)
@@ -132,10 +130,11 @@
                         <a class="btnGoNext" asp-controller="UBO" asp-action="AddCompanyUBO" asp-route-Id="@Model.UboId">Proceed to questionarium</a>
                     }
                 </div>
+                <br/>
                 @if (Model.isSubmitted)
                 {
 
-                    @Html.Partial("~\\Views\\Client\\Index.cshtml")
+                    @await Component.InvokeAsync("Statistics", new { statsCaption = "Statistics" })
 
                 }
 

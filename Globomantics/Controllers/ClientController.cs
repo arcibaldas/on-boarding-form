@@ -22,7 +22,7 @@ namespace Globomantics.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.Title = "Conferences";
-            return View(await clientService.GetAll());
+            return PartialView(await clientService.GetAll());
         }
 
         public IActionResult AddCompanyUBO()

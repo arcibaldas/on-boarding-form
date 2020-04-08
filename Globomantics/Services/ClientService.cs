@@ -49,16 +49,19 @@ namespace Globomantics.Services
         }
 
 
-        /*  public Task<StatisticsModel> GetStatistics()
+        public Task<UBOModel> GetStatistics(UBOModel model)
           {
               return Task.Run(() =>
               {
-                  return new StatisticsModel
+
+                  return new UBOModel
                   {
-                      NumberOfAttendees = clients.Sum(c => c.Address),
-                      AverageConferenceAttendees = (int)clients.Average(c => c.Address)
+                     Name = clients.Max(c => c.Name),
+                     Surname = clients.Max(c => c.Surname),
+                     Email = clients.Max(c => c.Email),
+                     PhoneNumber = clients.Max(c => c.PhoneNumber),
                   };
               });
-          }*/
+          }
     }
 }

@@ -30,8 +30,6 @@ namespace Globomantics
 
             services.AddSingleton<IClientService, ClientService>();
 
-            services.AddSingleton<IUBOService, UBOService>();
-
 
 
         }
