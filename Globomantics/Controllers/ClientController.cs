@@ -12,6 +12,7 @@ namespace Globomantics.Controllers
     {
         private readonly IClientService clientService;
         private readonly ICompanyService companyService;
+
         public ClientController(IClientService clientService,
             ICompanyService companyService)
         {
@@ -66,6 +67,30 @@ namespace Globomantics.Controllers
                 await clientService.AddCompanyCEO(model);
 
                 model.isSubmitted = true;
+                return View(model);
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+
+        public IActionResult AddQuestionnaire()
+        {
+
+            ViewBag.Title = "Add Company";
+            return View(new QuestionnaireModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddQuestionnaire(QuestionnaireModel model)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                await clientService.AddQuestionnaire(model);
+
+               
                 return View(model);
             }
             else

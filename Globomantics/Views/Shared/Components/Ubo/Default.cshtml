@@ -1,4 +1,5 @@
-﻿@model Shared.Models.UBOModel
+﻿@using Shared.Models
+@model IEnumerable<ClientModel>
 <div class="row">
     <div class="col-md-10 col-md-offset-2">
         <table class="table">
@@ -6,15 +7,9 @@
                 <th>First and last name</th>
                 <th>Email</th>
                 <th>Phonenumber</th>
-                
+
             </tr>
-            <tr>
-                
-                   <td>@Model.Name @Model.Surname</td>
-                    <td>@Model.Email</td>
-                    <td>@Model.PhoneNumber</td>
-               
-            </tr>
+            @Html.DisplayForModel()
         </table>
     </div>
 </div>

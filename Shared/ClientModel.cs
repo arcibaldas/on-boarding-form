@@ -36,9 +36,33 @@ namespace Shared.Models
 
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[a-zA-Z]+\s[0-9]+$", ErrorMessage = "Please inesert street name and number of the house")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert street name")]
         [MinLength(3, ErrorMessage = "Name is too short")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "The field is required")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert country code")]
+        [MinLength(3, ErrorMessage = "Name is too short")]
+        public string CountryCode { get; set; }
+
+        [Required(ErrorMessage = "The field is required")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert city or town name")]
+        [MinLength(3, ErrorMessage = "Name is too short")]
+        public string CityOrTown { get; set; }
+
+        [Required(ErrorMessage = "The field is required")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert street name")]
+        [MinLength(3, ErrorMessage = "Name is too short")]
+        public string County { get; set; }
+
+        [Required(ErrorMessage = "The field is required")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "House number is invalid")]
+        [Range(0, 99999999999, ErrorMessage = "Personal code is too short")]
+        public string HouseNumber { get; set; }
+
+        [Required(ErrorMessage = "The field is required")]
+        [RegularExpression(@"^[a-zA-Z]+[a-zA-Z]+[0-9]+$", ErrorMessage = "Postal code is invalid")]
+        public string PostalCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert valid surname")]

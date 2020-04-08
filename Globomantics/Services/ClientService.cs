@@ -9,6 +9,8 @@ namespace Globomantics.Services
     public class ClientService: IClientService
     {
         private readonly List<ClientModel> clients = new List<ClientModel>();
+        private readonly List<QuestionnaireModel> questionnaires = new List<QuestionnaireModel>();
+
 
         public ClientService()
         {
@@ -28,6 +30,13 @@ namespace Globomantics.Services
             model.Id = clients.Max(c => c.Id) + 1;
             model.CeoId = clients.Max(c => c.UboId) + 1;
             clients.Add(model);
+            return Task.CompletedTask;
+        }
+
+        public Task AddQuestionnaire(QuestionnaireModel model)
+        {
+
+            questionnaires.Add(model);
             return Task.CompletedTask;
         }
 

@@ -6,20 +6,19 @@ using System.Collections.Generic;
 
 namespace WebApp.ViewComponents
 {
-    public class StatisticsViewComponent : ViewComponent
+    public class UboViewComponent : ViewComponent
     {
         private readonly IClientService service;
-        private readonly List<UBOModel> clients = new List<UBOModel>();
-        public StatisticsViewComponent(IClientService service)
+        public UboViewComponent(IClientService service)
         {
             this.service = service;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string statsCaption, UBOModel model)
+        public async Task<IViewComponentResult> InvokeAsync(string statsCaption)
         {
            
             ViewBag.Caption = statsCaption;
-            return View(await service.GetStatistics(model));
+            return View(await service.GetAll());
         }
     }
 }

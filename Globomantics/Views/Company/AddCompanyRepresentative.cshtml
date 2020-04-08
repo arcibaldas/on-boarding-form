@@ -93,12 +93,30 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
+                                    <input asp-for="@Model.CityOrTown" type="text" class="form-control" placeholder="City or town" />
+                                    @Html.ValidationMessageFor(model => model.CityOrTown, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <input asp-for="@Model.County" type="text" class="form-control" placeholder="Country" />
+                                    @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.CountryCode" type="text" class="form-control" placeholder="Country Code" />
+                                    @Html.ValidationMessageFor(model => model.CountryCode, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
                                     <input asp-for="@Model.Address" type="text" class="form-control" placeholder="Your Address *" />
                                     @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                                 </div>
+
                                 <div class="form-group">
-                                    <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
-                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    <input asp-for="@Model.HouseNumber" type="text" class="form-control" placeholder="House number" />
+                                    @Html.ValidationMessageFor(model => model.HouseNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.PostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                    @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <input asp-for="@Model.PhoneNumber" type="text" class="form-control" placeholder="Your Phone *" />
@@ -167,38 +185,87 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input asp-for="@Model.LegalAddress" class="form-control" placeholder="Companys's Legal address *" />
+                                    <label class=" form-label">Legal address</label>
+                                    <input asp-for="@Model.LegalCityOrTown" type="text" class="form-control" placeholder="City or town" />
+                                    @Html.ValidationMessageFor(model => model.LegalCityOrTown, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <input asp-for="@Model.LegalCounty" type="text" class="form-control" placeholder="County" />
+                                    @Html.ValidationMessageFor(model => model.LegalCounty, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.LegalCountryCode" type="text" class="form-control" placeholder="Country Code" />
+                                    @Html.ValidationMessageFor(model => model.LegalCountryCode, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.LegalAddress" type="text" class="form-control" placeholder="Your Address *" />
                                     @Html.ValidationMessageFor(model => model.LegalAddress, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group">
-                                    <input asp-for="@Model.PhysicalAddress" class="form-control" placeholder="Company's Physical address *" />
+                                    <input asp-for="@Model.LegalHouseNumber" type="text" class="form-control" placeholder="House number" />
+                                    @Html.ValidationMessageFor(model => model.LegalHouseNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.LegalPostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                    @Html.ValidationMessageFor(model => model.LegalPostalCode, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label class=" form-label">Physical address</label>
+                                    <input asp-for="@Model.PhysicalCityOrTown" type="text" class="form-control" placeholder="City or town" />
+                                    @Html.ValidationMessageFor(model => model.PhysicalCityOrTown, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <input asp-for="@Model.PhysicalCounty" type="text" class="form-control" placeholder="County" />
+                                    @Html.ValidationMessageFor(model => model.PhysicalCounty, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.PhysicalCountryCode" type="text" class="form-control" placeholder="Country Code" />
+                                    @Html.ValidationMessageFor(model => model.PhysicalCountryCode, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.PhysicalAddress" type="text" class="form-control" placeholder="Your Address *" />
                                     @Html.ValidationMessageFor(model => model.PhysicalAddress, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group">
-                                    <label asp-for="@Model.RegistrationCode class=" form-label">Company code/Registration code</label>
-                                    <input asp-for="@Model.RegistrationCode" class="form-control" placeholder="Company code/registration code *" />
-                                    @Html.ValidationMessageFor(model => model.RegistrationCode, "", new { @class = "text-danger" })
+                                    <input asp-for="@Model.PhysicalHouseNumber" type="text" class="form-control" placeholder="House number" />
+                                    @Html.ValidationMessageFor(model => model.PhysicalHouseNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.PhysicalPostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                    @Html.ValidationMessageFor(model => model.PhysicalPostalCode, "", new { @class = "text-danger" })
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="form-label" asp-for="@Model.IncorporationDate">Incorporation date</label>
-                                    <input class="form-control" type="date" asp-for="@Model.IncorporationDate" />
-                                </div>
-                                <div class="form-group">
-                                    <input asp-for="@Model.CompanyEmail" type="email" class="form-control" placeholder="Company's Email *" />
-                                    @Html.ValidationMessageFor(model => model.CompanyEmail, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
-                                    <input asp-for="@Model.CompanyPhoneNumber" type="text" class="form-control" placeholder="Company's Phone *" />
-                                    @Html.ValidationMessageFor(model => model.CompanyPhoneNumber, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
+                                
+                                @*<div class="form-group">
                                     <textarea asp-for="@Model.Activities" class="form-control" rows="5" placeholder="Describe your business activities "></textarea>
                                     @Html.ValidationMessageFor(model => model.Activities, "", new { @class = "text-danger" })
-                                </div>
+                                </div>*@
 
+                                
+                            </div>
+
+                            <div class="col-md-6">
+
+                                @*<div class="form-group">
+            <textarea asp-for="@Model.Partners" class="form-control" rows="5" placeholder="The main business partners"></textarea>
+            @Html.ValidationMessageFor(model => model.Partners, "", new { @class = "text-danger" })
+        </div>*@
+
+                                @*<div class="form-group">
+            <label class="form-label" asp-for="@Model.LastYearTurnover">Last year's turnover</label>
+            <input asp-for="@Model.LastYearTurnover" class="form-control" placeholder="Last year's turnover" />
+            @Html.ValidationMessageFor(model => model.LastYearTurnover, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="@Model.NextYearTurnover">Estimated next year's turnover</label>
+            <input asp-for="@Model.NextYearTurnover" class="form-control" placeholder="Estimated next year's turnover" />
+            @Html.ValidationMessageFor(model => model.NextYearTurnover, "", new { @class = "text-danger" })
+        </div>*@
                                 <div class="form-group">
                                     <label class="form-label">Does company provide financial services?</label>
                                     <div class="maxl">
@@ -223,25 +290,25 @@
                                         <option value='Other'>Other</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="col-md-6">
-
                                 <div class="form-group">
-                                    <textarea asp-for="@Model.Partners" class="form-control" rows="5" placeholder="The main business partners"></textarea>
-                                    @Html.ValidationMessageFor(model => model.Partners, "", new { @class = "text-danger" })
+                                    <label asp-for="@Model.RegistrationCode class=" form-label">Company code/Registration code</label>
+                                    <input asp-for="@Model.RegistrationCode" class="form-control" placeholder="Company code/registration code *" />
+                                    @Html.ValidationMessageFor(model => model.RegistrationCode, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-label" asp-for="@Model.LastYearTurnover">Last year's turnover</label>
-                                    <input asp-for="@Model.LastYearTurnover" class="form-control" placeholder="Last year's turnover" />
-                                    @Html.ValidationMessageFor(model => model.LastYearTurnover, "", new { @class = "text-danger" })
+                                    <label class="form-label" asp-for="@Model.IncorporationDate">Incorporation date</label>
+                                    <input class="form-control" type="date" asp-for="@Model.IncorporationDate" />
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" asp-for="@Model.NextYearTurnover">Estimated next year's turnover</label>
-                                    <input asp-for="@Model.NextYearTurnover" class="form-control" placeholder="Estimated next year's turnover" />
-                                    @Html.ValidationMessageFor(model => model.NextYearTurnover, "", new { @class = "text-danger" })
+                                    <input asp-for="@Model.CompanyEmail" type="email" class="form-control" placeholder="Company's Email *" />
+                                    @Html.ValidationMessageFor(model => model.CompanyEmail, "", new { @class = "text-danger" })
                                 </div>
+                                <div class="form-group">
+                                    <input asp-for="@Model.CompanyPhoneNumber" type="text" class="form-control" placeholder="Company's Phone *" />
+                                    @Html.ValidationMessageFor(model => model.CompanyPhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+
                                 <div class="form-group">
                                     <textarea asp-for="@Model.Structure" class="form-control" rows="8" placeholder="Indicate entity’s management structure"></textarea>
                                     @Html.ValidationMessageFor(model => model.Structure, "", new { @class = "text-danger" })

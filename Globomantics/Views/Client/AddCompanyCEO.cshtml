@@ -91,8 +91,30 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
+                                <input asp-for="@Model.CityOrTown" type="text" class="form-control" placeholder="City or town" />
+                                @Html.ValidationMessageFor(model => model.CityOrTown, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <input asp-for="@Model.County" type="text" class="form-control" placeholder="Country" />
+                                @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.CountryCode" type="text" class="form-control" placeholder="Country Code" />
+                                @Html.ValidationMessageFor(model => model.CountryCode, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
                                 <input asp-for="@Model.Address" type="text" class="form-control" placeholder="Your Address *" />
                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <input asp-for="@Model.HouseNumber" type="text" class="form-control" placeholder="House number" />
+                                @Html.ValidationMessageFor(model => model.HouseNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.PostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
