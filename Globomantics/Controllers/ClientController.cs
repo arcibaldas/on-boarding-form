@@ -34,14 +34,14 @@ namespace Globomantics.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCompanyUBO(ClientModel model)
+        public async Task<IActionResult> AddCompanyUBO(ClientModel model,int newId)
         {
 
             model.isSubmitted = false;
             if (ModelState.IsValid)
             {
                 
-                await clientService.AddCompanyUBO(model);
+                await clientService.AddCompanyUBO(model, newId);
                 model.isSubmitted = true;
                 return View(model);
             }
@@ -59,12 +59,12 @@ namespace Globomantics.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCompanyCEO(ClientModel model)
+        public async Task<IActionResult> AddCompanyCEO(ClientModel model, int newId)
         {
             model.isSubmitted = false;
             if (ModelState.IsValid)
             {
-                await clientService.AddCompanyCEO(model);
+                await clientService.AddCompanyCEO(model, newId);
 
                 model.isSubmitted = true;
                 return View(model);
@@ -75,35 +75,12 @@ namespace Globomantics.Controllers
             }
         }
 
-        public IActionResult AddQuestionnaire()
-        {
-
-            ViewBag.Title = "Add Company";
-            return View(new QuestionnaireModel());
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddQuestionnaire(QuestionnaireModel model)
-        {
-            
-            if (ModelState.IsValid)
-            {
-                await clientService.AddQuestionnaire(model);
-
-               
-                return View(model);
-            }
-            else
-            {
-                return View(model);
-            }
-        }
         public async Task<IActionResult> Delete(ClientModel model)
         {
             if (ModelState.IsValid)
                 await clientService.Delete(model);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("AddCompanyUBO");
         }
 
        

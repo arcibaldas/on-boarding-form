@@ -26,10 +26,12 @@ namespace Shared.Models
         public string LegalStatus { get; set; }
         
         public string CountryOfRegistration { get; set; }
+
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[a-zA-Z]+\s[0-9]+$", ErrorMessage = "Please inesert street name and number of the house")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please inesert only street name")]
         [MinLength(3, ErrorMessage = "Name is too short")]
         public string LegalAddress { get; set; }
+
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert country code")]
@@ -52,11 +54,11 @@ namespace Shared.Models
         public string LegalHouseNumber { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[0-9]+[a-zA-Z]+$", ErrorMessage = "Postal code is invalid")]
+        [RegularExpression(@"^[a-zA-Z]+[a-zA-Z]+[0-9]+$", ErrorMessage = "Postal code is invalid")]
         public string LegalPostalCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[a-zA-Z]+\s[0-9]+$", ErrorMessage = "Please inesert street name and number of the house")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert only street name")]
         [MinLength(3, ErrorMessage = "Name is too short")]
         public string PhysicalAddress { get; set; }
 
@@ -81,7 +83,7 @@ namespace Shared.Models
         public string PhysicalHouseNumber { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[0-9]+[a-zA-Z]+$", ErrorMessage = "Postal code is invalid")]
+        [RegularExpression(@"^[a-zA-Z]+[a-zA-Z]+[0-9]+$", ErrorMessage = "Postal code is invalid")]
         public string PhysicalPostalCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
@@ -97,25 +99,11 @@ namespace Shared.Models
         [Required(ErrorMessage = "The field is required")]
         [EmailAddress]
         public string CompanyEmail { get; set; }
-        //[StringLength(100)]
-        //[Required(ErrorMessage = "The field is required")]
-        public string Activities { get; set; }
-        //[Required]
-        public bool  Services { get; set; }
+       
         [StringLength(100)]
         [Required(ErrorMessage = "The field is required")]
         public string Regions { get; set; }
-        //[StringLength(100)]
-        //[Required(ErrorMessage = "The field is required")]
-        public string Partners { get; set; }
-        //[Required(ErrorMessage = "The field is required")]
-        //[RegularExpression(@"^[0-9]+$", ErrorMessage = "Number is invalid")]
-        //[Range(1, 99999999999, ErrorMessage = "Too small number")]
-        public long LastYearTurnover { get; set; }
-        //[Required(ErrorMessage = "The field is required")]
-        //[RegularExpression(@"^[0-9]+$", ErrorMessage = "Number is invalid")]
-        //[Range(1, 99999999999, ErrorMessage = "Too small number")]
-        public long NextYearTurnover { get; set; }
+        
         [StringLength(100)]
         [Required(ErrorMessage = "The field is required")]
         public string Structure { get; set; }

@@ -35,7 +35,7 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select asp-for="Gender " class="form-control custom-select">
+                                    <select asp-for="@Model.Gender " class="form-control custom-select">
                                         <option value='Mr'>Mr.</option>
                                         <option value='Ms'>Ms.</option>
                                     </select>
@@ -115,8 +115,12 @@
                                     @Html.ValidationMessageFor(model => model.HouseNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <input asp-for="@Model.PostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                    <input asp-for="@Model.PostalCode" type="text" class="form-control" placeholder="Postal code" />
                                     @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <input asp-for="@Model.PhoneNumber" type="text" class="form-control" placeholder="Your Phone *" />
@@ -208,7 +212,7 @@
                                     @Html.ValidationMessageFor(model => model.LegalHouseNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <input asp-for="@Model.LegalPostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                    <input asp-for="@Model.LegalPostalCode" type="text" class="form-control" placeholder="Postal code" />
                                     @Html.ValidationMessageFor(model => model.LegalPostalCode, "", new { @class = "text-danger" })
                                 </div>
 
@@ -236,49 +240,15 @@
                                     @Html.ValidationMessageFor(model => model.PhysicalHouseNumber, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <input asp-for="@Model.PhysicalPostalCode" type="email" class="form-control" placeholder="Postal code" />
+                                    <input asp-for="@Model.PhysicalPostalCode" type="text" class="form-control" placeholder="Postal code" />
                                     @Html.ValidationMessageFor(model => model.PhysicalPostalCode, "", new { @class = "text-danger" })
                                 </div>
-
-                                
-                                @*<div class="form-group">
-                                    <textarea asp-for="@Model.Activities" class="form-control" rows="5" placeholder="Describe your business activities "></textarea>
-                                    @Html.ValidationMessageFor(model => model.Activities, "", new { @class = "text-danger" })
-                                </div>*@
 
                                 
                             </div>
 
                             <div class="col-md-6">
 
-                                @*<div class="form-group">
-            <textarea asp-for="@Model.Partners" class="form-control" rows="5" placeholder="The main business partners"></textarea>
-            @Html.ValidationMessageFor(model => model.Partners, "", new { @class = "text-danger" })
-        </div>*@
-
-                                @*<div class="form-group">
-            <label class="form-label" asp-for="@Model.LastYearTurnover">Last year's turnover</label>
-            <input asp-for="@Model.LastYearTurnover" class="form-control" placeholder="Last year's turnover" />
-            @Html.ValidationMessageFor(model => model.LastYearTurnover, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <label class="form-label" asp-for="@Model.NextYearTurnover">Estimated next year's turnover</label>
-            <input asp-for="@Model.NextYearTurnover" class="form-control" placeholder="Estimated next year's turnover" />
-            @Html.ValidationMessageFor(model => model.NextYearTurnover, "", new { @class = "text-danger" })
-        </div>*@
-                                <div class="form-group">
-                                    <label class="form-label">Does company provide financial services?</label>
-                                    <div class="maxl">
-                                        <label class="radio inline">
-                                            <input asp-for="@Model.Services" type="radio" name="gender" value="true">
-                                            <span> Yes </span>
-                                        </label>
-                                        <label class="radio inline">
-                                            <input asp-for="@Model.Services" type="radio" name="gender" value="false">
-                                            <span>No </span>
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label asp-for="@Model.Regions class=" form-label">Main business regions </label>
                                     <select asp-for="@Model.Regions " class="form-control custom-select">
@@ -345,7 +315,7 @@
                 </form>
                 @if (Model.isSubmitted)
                 {
-                         <a class="btnGoNext" asp-controller="Client" asp-action="AddCompanyCEO" >Add company</a>
+                         <a class="btnGoNext" asp-controller="Client" asp-action="AddCompanyCEO" asp-route-newId="@Model.CompanyId">Add company</a>
                 }
             </div>
         </div>

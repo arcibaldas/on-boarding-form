@@ -9,11 +9,10 @@ namespace Globomantics.Services
         Task<IEnumerable<ClientModel>> GetAll();
         Task<ClientModel> GetById(int id);
 
-        Task AddCompanyCEO(ClientModel model);
-        Task<UBOModel> GetStatistics(UBOModel model);
-        Task AddCompanyUBO(ClientModel model);
-        Task AddQuestionnaire(QuestionnaireModel model);
-        Task Delete(ClientModel model);
-        
+        Task AddCompanyCEO(ClientModel model, int newId);
+        Task AddCompanyUBO(ClientModel model, int newId);
+        Task<IEnumerable<ClientModel>> Delete(ClientModel model);
+
+
     }
 }

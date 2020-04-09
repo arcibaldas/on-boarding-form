@@ -7,7 +7,7 @@ namespace Shared.Models
     public class QuestionnaireModel
     {
 
-        
+        public int QuestionnaireId { get; set; }
         public string CurrenciesToBeBought { get; set; }
 
         public string CurrenciesToBeReceived { get; set; }

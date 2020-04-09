@@ -62,28 +62,6 @@ namespace Globomantics.Controllers
 
       
 
-        public IActionResult AddCompanyUBO()
-        {
-
-            ViewBag.Title = "Add Company";
-            return View(new CompanyModel());
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddCompanyUBO(CompanyModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                await companyService.AddCompanyUBO(model);
-
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(model);
-            }
-        }
-
 
 
         [AcceptVerbs("GET", "POST")]

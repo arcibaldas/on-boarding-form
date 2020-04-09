@@ -1,16 +1,27 @@
 ﻿@using Shared.Models
 @model IEnumerable<ClientModel>
-<div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        <table class="table">
-            <tr>
-                <th>First and last name</th>
-                <th>Email</th>
-                <th>Phonenumber</th>
-
-            </tr>
-            @Html.DisplayForModel()
-        </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-bordered table-hover" data-tablesaw-mode="columntoggle" data-tablesaw-minimap>
+                    <caption class="text-center">
+                        Clients information. You can delete them and add new ones.
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th data-tablesaw-priority="persist">Name and surname</th>
+                            <th data-tablesaw-priority="2">Personal code</th>
+                            <th data-tablesaw-priority="3">Birth date</th>
+                            <th data-tablesaw-priority="4">Citizenship</th>
+                            <th data-tablesaw-priority="5">Email</th>
+                            <th data-tablesaw-priority="5">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    @Html.DisplayForModel()
+                </table>
+            </div>
+        </div>
     </div>
-</div>
 

@@ -11,9 +11,7 @@ namespace Globomantics.Services
         Task<IEnumerable<CompanyModel>> GetAll();
         Task<CompanyModel> GetById(int id);
         Task AddCompanyRepresentative(CompanyModel model);
-        Task AddCompanyCEO(CompanyModel model);
-
-        Task AddCompanyUBO(CompanyModel model);
+ 
         Task<CompanyModel> VerifyEmail(string email);
     }
 }

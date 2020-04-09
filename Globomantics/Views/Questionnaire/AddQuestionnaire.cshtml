@@ -1,0 +1,153 @@
+﻿@using Shared.Models
+@using System.ComponentModel.DataAnnotations;
+@model Shared.Models.QuestionnaireModel
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img img src="~/img/nasa.png" class="login-logo" alt="" />
+            <h3>Welcome</h3>
+            <p>To Pyrros</p>
+            <p>
+                <b>
+                    Pyrros group is a fully licensed eMoney institution
+                    regulated by the Central Bank of Lithuania.
+                </b>
+            </p>
+        </div>
+        <div class="col-md-9 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">UBO Registration</h3>
+                    <form asp-action="AddQuestionnaire" class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class=" form-label">Currencies to be bought</label>
+                                <textarea asp-for="@Model.CurrenciesToBeBought" class="form-control" rows="5" placeholder="Currencies to be bought"></textarea>
+                                @Html.ValidationMessageFor(model => model.CurrenciesToBeBought, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class=" form-label">Currencies to be received</label>
+                                <textarea asp-for="@Model.CurrenciesToBeReceived" class="form-control" rows="5" placeholder="Currencies to be received"></textarea>
+                                @Html.ValidationMessageFor(model => model.CurrenciesToBeReceived, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class=" form-label">Currencies to be sent</label>
+                                <textarea asp-for="@Model.CurrenciesToBeSent" class="form-control" rows="5" placeholder="Currencies to be sent"></textarea>
+                                @Html.ValidationMessageFor(model => model.CurrenciesToBeSent, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class=" form-label">Currencies to be sold</label>
+                                <textarea asp-for="@Model.CurrenciesToBeSold" class="form-control" rows="5" placeholder="Currencies to be sold"></textarea>
+                                @Html.ValidationMessageFor(model => model.CurrenciesToBeSold, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="ExpectedIncomingPaymentsSourceCountries" class="form-label">Countries of inward payments</label>
+                                <select asp-for="ExpectedIncomingPaymentsSourceCountries " class="form-control custom-select">
+                                    <option value='Ascension Island'>Ascension Island</option>
+                                    <option value='Andorra'>Andorra</option>
+                                    <option value='United Arab Emirates'>United Arab Emirates</option>
+                                    <option value='Afghanistan'>Afghanistan</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="ExpectedOutgoingPaymentsDestinationCountries" class="form-label">Countries of outgoing payments</label>
+                                <select asp-for="ExpectedOutgoingPaymentsDestinationCountries " class="form-control custom-select">
+                                    <option value='Ascension Island'>Ascension Island</option>
+                                    <option value='Andorra'>Andorra</option>
+                                    <option value='United Arab Emirates'>United Arab Emirates</option>
+                                    <option value='Afghanistan'>Afghanistan</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class=" form-label">Average transactions value</label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="EstimatedAverageIncomingTransactionValue" class="form-label">Inward</label>
+                                <select asp-for="EstimatedAverageIncomingTransactionValue " class="form-control custom-select">
+                                    <option value='Up to EUR 1 000'>Up to EUR 1 000</option>
+                                    <option value='From EUR 1 001 to 3 000 '>From EUR 1 001 to 3 000 </option>
+                                    <option value='From EUR 3001 to 10 000'>From EUR 3001 to 10 000</option>
+                                    <option value='From EUR 10 001 to 100 000'>From EUR 10 001 to 100 000</option>
+                                    <option value='From 100 001'>From 100 001</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EstimatedAverageOutgoingTransactionValue" class="form-label">Outgoing</label>
+                                <select asp-for="EstimatedAverageOutgoingTransactionValue " class="form-control custom-select">
+                                    <option value='Up to EUR 1 000'>Up to EUR 1 000</option>
+                                    <option value='From EUR 1 001 to 3 000 '>From EUR 1 001 to 3 000 </option>
+                                    <option value='From EUR 3001 to 10 000'>From EUR 3001 to 10 000</option>
+                                    <option value='From EUR 10 001 to 100 000'>From EUR 10 001 to 100 000</option>
+                                    <option value='From 100 001'>From 100 001</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class=" form-label">Expected monthly payments turnover</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EstimatedNextYearsTurnover" class="form-label">Inward</label>
+                                <select asp-for="EstimatedNextYearsTurnover " class="form-control custom-select">
+                                    <option value='Up to EUR 15 000 '>Up to EUR 15 000 </option>
+                                    <option value='From EUR 15 001 to 30 000'>From EUR 15 001 to 30 000</option>
+                                    <option value='From EUR 30 001 to 150 000'>From EUR 30 001 to 150 000</option>
+                                    <option value='From 150 001'>From 150 001</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EstimatedOutgoingTransactionTurnover" class="form-label">Outgoing</label>
+                                <select asp-for="EstimatedOutgoingTransactionTurnover " class="form-control custom-select">
+                                    <option value='Up to EUR 15 000 '>Up to EUR 15 000 </option>
+                                    <option value='From EUR 15 001 to 30 000'>From EUR 15 001 to 30 000</option>
+                                    <option value='From EUR 30 001 to 150 000'>From EUR 30 001 to 150 000</option>
+                                    <option value='From 150 001'>From 150 001</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class=" form-label">Monthly frequency of payments</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EstimatedAverageIncomingTransactionVolume" class="form-label">Inward</label>
+                                <select asp-for="EstimatedAverageIncomingTransactionVolume " class="form-control custom-select">
+                                    <option value='Up to 10'>Up to 10</option>
+                                    <option value='From 11 to 50'>From 11 to 50</option>
+                                    <option value='From 51 to 100'>From 51 to 100</option>
+                                    <option value='From 101 to 500'>From 101 to 500</option>
+                                    <option value='From 501'>From 501</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EstimatedAverageOutgoingTransactionVolume" class="form-label">Outgoing</label>
+                                <select asp-for="EstimatedAverageOutgoingTransactionVolume " class="form-control custom-select">
+                                    <option value='Up to 10'>Up to 10</option>
+                                    <option value='From 11 to 50'>From 11 to 50</option>
+                                    <option value='From 51 to 100'>From 51 to 100</option>
+                                    <option value='From 101 to 500'>From 101 to 500</option>
+                                    <option value='From 501'>From 501</option>
+
+                                </select>
+                            </div>
+                            <input type="submit" class="btnRegister" value="Add user" asp-controller="Company" asp-action="Index" />
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
