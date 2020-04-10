@@ -2,28 +2,23 @@
 @model IEnumerable<CompanyModel>
 
 
-<div class="row center">
+    <div class="row center">
 
-    <img asp-append-version="true" alt="Logo" src="~/img/nasa.png" style="max-width:100%" />
-    
-        
-    
-    <div class="login-form">
-        <form>
-            <h2 class="text-center">On boarding</h2>
+        <img asp-append-version="true" alt="Logo" src="~/img/nasa.png" style="max-width:100%" />
+
+        @Html.DisplayForModel()
+
+        <div class="login-form">
+            <form>
+                <h2 class="text-center">On boarding</h2>
+                <div class="form-group">
+                    <button type="submit" asp-action="AddCompanyRepresentative" class="btn btn-primary btn-block">Register new users and company</button>
+                </div>
+
+            </form>
             <div class="form-group">
-                <button type="submit" asp-action="AddCompanyRepresentative" class="btn btn-primary btn-block">Representative person profile</button>
+                <button type="submit" class="btn btn-link"><a asp-action="Tables">Check tables</a></button>
             </div>
-            <div class="form-group">
-                <button type="submit" asp-action="AddCompanyCEO" class="btn btn-primary btn-block">Director (CEO) profile</button>
-            </div>
-            <div class="form-group">
-                <button type="submit" asp-controller="Client" asp-action="Add" class="btn btn-primary btn-block">Ultimate Beneficial Owner profile </button>
-            </div>
-        </form>
-        <div class="form-group">
-            <button type="submit" class="btn btn-link"><a asp-action="Tables">Check tables</a></button>
         </div>
     </div>
-</div>
 

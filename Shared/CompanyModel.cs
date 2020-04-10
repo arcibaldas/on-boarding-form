@@ -104,9 +104,6 @@ namespace Shared.Models
         [Required(ErrorMessage = "The field is required")]
         public string Regions { get; set; }
         
-        [StringLength(100)]
-        [Required(ErrorMessage = "The field is required")]
-        public string Structure { get; set; }
         [Required(ErrorMessage = "The field is required")]
         public bool License { get; set; }
         [Url]
@@ -115,5 +112,6 @@ namespace Shared.Models
         [StringLength(100)]
         [Required(ErrorMessage = "The field is required")]
         public string Expected { get; set; }
+
     }
 }

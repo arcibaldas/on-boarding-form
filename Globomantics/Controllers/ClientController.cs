@@ -26,22 +26,24 @@ namespace Globomantics.Controllers
             return PartialView(await clientService.GetAll());
         }
 
-        public IActionResult AddCompanyUBO()
+        public IActionResult AddCompanyUBO(int newId)
         {
 
             ViewBag.Title = "Add Company";
-            return View(new ClientModel());
+            return View(new ClientModel{ UboId = newId,ClientCounter = newId });
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCompanyUBO(ClientModel model,int newId)
+        public async Task<IActionResult> AddCompanyUBO(ClientModel model, int newId)
         {
 
             model.isSubmitted = false;
+            model.UboId = newId;
+            model.ClientCounter = newId;
             if (ModelState.IsValid)
             {
                 
-                await clientService.AddCompanyUBO(model, newId);
+                await clientService.AddCompanyUBO(model,newId);
                 model.isSubmitted = true;
                 return View(model);
             }
@@ -51,17 +53,17 @@ namespace Globomantics.Controllers
             }
         }
 
-        public IActionResult AddCompanyCEO()
+        public IActionResult AddCompanyCEO(int newId)
         {
 
             ViewBag.Title = "Add Company";
-            return View(new ClientModel());
+            return View(new ClientModel { CeoId = newId });
         }
 
         [HttpPost]
         public async Task<IActionResult> AddCompanyCEO(ClientModel model, int newId)
         {
-            model.isSubmitted = false;
+            model.CeoId = newId;
             if (ModelState.IsValid)
             {
                 await clientService.AddCompanyCEO(model, newId);

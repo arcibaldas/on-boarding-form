@@ -18,20 +18,20 @@
         <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Corporate</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">Corporate</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">CEO</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab"  role="tab" aria-controls="profile" aria-selected="false">CEO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">UBO</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab"  role="tab" aria-controls="profile" aria-selected="false">UBO</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
 
                 <h3 class="register-heading">Corporate Client Registration</h3>
                 <form asp-action="AddCompanyRepresentative" class="row register-form">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -89,7 +89,22 @@
                                         <option value='Antarctica'>Antarctica</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label class="form-label">Are you CEO of the company?</label>
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.isCeo" type="radio" value=1>
+                                            <span> Yes </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input asp-for="@Model.isCeo" type="radio" value=2>
+                                            <span>No </span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="col-md-6">
 
                                 <div class="form-group">
@@ -119,8 +134,8 @@
                                     @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    <input asp-for="@Model.Email" type="email" class="form-control" placeholder="Your Email *" />
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <input asp-for="@Model.PhoneNumber" type="text" class="form-control" placeholder="Your Phone *" />
@@ -134,11 +149,11 @@
                                     <label class="form-label">Please indicate if this person is politically exposed person, immediate member of politically exposed person or/and close associate of politically exposed person</label>
                                     <div class="maxl">
                                         <label class="radio inline">
-                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="true">
+                                            <input asp-for="@Model.Politics" type="radio" value="true">
                                             <span> Yes </span>
                                         </label>
                                         <label class="radio inline">
-                                            <input asp-for="@Model.Politics" type="radio" name="gender" value="false">
+                                            <input asp-for="@Model.Politics" type="radio" value="false">
                                             <span>No </span>
                                         </label>
                                     </div>
@@ -244,7 +259,7 @@
                                     @Html.ValidationMessageFor(model => model.PhysicalPostalCode, "", new { @class = "text-danger" })
                                 </div>
 
-                                
+
                             </div>
 
                             <div class="col-md-6">
@@ -280,10 +295,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <textarea asp-for="@Model.Structure" class="form-control" rows="8" placeholder="Indicate entity’s management structure"></textarea>
-                                    @Html.ValidationMessageFor(model => model.Structure, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
                                     <label class="form-label">Please indicate if the legal entity is required to have a special licence to perform its activities in the registration country?  </label>
                                     <div class="maxl">
                                         <label class="radio inline">
@@ -308,15 +319,29 @@
                                 {
                                     <input type="submit" class="btnRegister" value="Submit" />
                                 }
+                                else
+                                {
+                                    <div class="alert alert-info">
+                                        <strong>Company information addded successfully</strong>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
 
                 </form>
-                @if (Model.isSubmitted)
+                @if (Model.isSubmitted && Model.isCeo==2)
                 {
-                         <a class="btnGoNext" asp-controller="Client" asp-action="AddCompanyCEO" asp-route-newId="@Model.CompanyId">Add company</a>
+                    <a class="btnGoNext" asp-controller="Client" asp-action="AddCompanyCEO" asp-route-newId="@Model.CompanyId">Add CEO</a>
                 }
+
+                @if (Model.isSubmitted && Model.isCeo==1)
+                {
+
+                    <a class="btnGoNext" asp-controller="Client" asp-action="AddCompanyUBO" asp-route-newId="@Model.CompanyId">Add UBO</a>
+                }
+
+
             </div>
         </div>
     </div>

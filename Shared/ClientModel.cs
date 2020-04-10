@@ -93,7 +93,11 @@ namespace Shared.Models
       
         public bool Politics { get; set; }
 
-        public int UserCounter { get; set; } = 0;
+        [Required(ErrorMessage = "The field is required")]
+        public int isCeo { get; set; }
+
+        
+        public int ClientCounter { get; set; }
 
     }
 }

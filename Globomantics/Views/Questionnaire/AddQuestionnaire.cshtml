@@ -15,10 +15,15 @@
             </p>
         </div>
         <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">Questionnaire</a>
+                </li>
+            </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Company Questionnaire</h3>
-                    <form asp-action="AddQuestionnaire" class="row register-form">
+                    <form asp-action="AddQuestionnaire" asp-route-newId="@Model.QuestionnaireId" class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class=" form-label">Currencies to be bought</label>
@@ -40,8 +45,40 @@
                                 <textarea asp-for="@Model.CurrenciesToBeSold" class="form-control" rows="5" placeholder="Currencies to be sold"></textarea>
                                 @Html.ValidationMessageFor(model => model.CurrenciesToBeSold, "", new { @class = "text-danger" })
                             </div>
+                            <div class="form-group">
+                                <label class="form-label">Does company provide financial services?</label>
+                                <div class="maxl">
+                                    <label class="radio inline">
+                                        <input asp-for="@Model.Services" type="radio" value="true">
+                                        <span> Yes </span>
+                                    </label>
+                                    <label class="radio inline">
+                                        <input asp-for="@Model.Services" type="radio" value="false">
+                                        <span>No </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea asp-for="@Model.Activities " class="form-control" rows="8" placeholder="Describe your business activities"></textarea>
+                                @Html.ValidationMessageFor(model => model.Activities, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <textarea asp-for="@Model.Structure" class="form-control" rows="8" placeholder="Indicate entity’s management structure"></textarea>
+                                @Html.ValidationMessageFor(model => model.Structure, "", new { @class = "text-danger" })
+                            </div>
 
+                            <div class="form-group">
+                                <textarea asp-for="@Model.Partners" class="form-control" rows="8" placeholder="The main business partners (Suppliers, Customers, etc.) "></textarea>
+                                @Html.ValidationMessageFor(model => model.Partners, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <textarea asp-for="@Model.ReceivedServices" class="form-control" rows="8" placeholder="Please inform what services you would like to receive and describe how it correlates to your business and what is expected money flow "></textarea>
+                                @Html.ValidationMessageFor(model => model.ReceivedServices, "", new { @class = "text-danger" })
+                            </div>
                         </div>
+
+
                         <div class="col-md-6">
 
                             <div class="form-group">
@@ -144,7 +181,27 @@
 
                                 </select>
                             </div>
-                            <input type="submit" class="btnRegister" value="Add user" asp-controller="Company" asp-action="Index" />
+
+                            @if (Model.Services)
+                            {
+                                <label class=" form-label">Additional questions!</label>
+                                <div class="form-group">
+                                    <textarea asp-for="@Model.BussinessAccounts" class="form-control" rows="8" placeholder="Do the enity have business accounts in other banks? If yes please indicate the banks"></textarea>
+                                    @Html.ValidationMessageFor(model => model.BussinessAccounts, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea asp-for="@Model.AmlProcedure" class="form-control" rows="8" placeholder="Please provide official AML procedure "></textarea>
+                                    @Html.ValidationMessageFor(model => model.AmlProcedure, "", new { @class = "text-danger" })
+                                    <input type="submit" class="btnRegister" value="End registration" asp-controller="Company" asp-action="Index" />
+                                </div>
+                            }
+
+                            else
+                            {
+                                <input type="submit" class="btnRegister" value="Submit" />
+                            }
+
                         </div>
                     </form>
                 </div>

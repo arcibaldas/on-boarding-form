@@ -1,8 +1,10 @@
 ﻿
 @model Shared.Models.ClientModel     
     <tr>
-        @if (Model.UboId == 0)
+        @if (Model.UboId != 0)
         {
+            @if ((Model.UboId) == (Model.ClientCounter))
+            { 
             <td>@Model.Name @Model.Surname</td>
             <td>@Model.PersonalCode</td>
             <td>@Model.BirthDate.ToString("ddd d MMM")</td>
@@ -11,5 +13,6 @@
             <td>
                 <a asp-controller="Client" asp-action="Delete">Delete</a>
             </td>
+            }
         }
     </tr>

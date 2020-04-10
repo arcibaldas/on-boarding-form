@@ -21,6 +21,7 @@ namespace Globomantics.Services
         {
             model.Id = clients.Max(c => c.Id) + 1;
             model.UboId = newId;
+            model.ClientCounter = model.UboId;
             clients.Add(model);
             return Task.CompletedTask;
         }

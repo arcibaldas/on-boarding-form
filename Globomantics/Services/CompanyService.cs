@@ -36,8 +36,6 @@ namespace Globomantics.Services
 
                 CompanyEmail = "valera@opapa.lt",
 
-                Structure = "wavy",
-
                 License = false,
                 Website = "one.lt",
                 Expected = "maybe"

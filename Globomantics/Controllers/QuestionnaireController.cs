@@ -19,18 +19,18 @@ namespace Globomantics.Controllers
 
         }
 
-        public IActionResult AddQuestionnaire()
+        public IActionResult AddQuestionnaire(int newId)
         {
 
             ViewBag.Title = "Add Company Questionnaire";
-            return View(new QuestionnaireModel());
+            return View(new QuestionnaireModel { QuestionnaireId=newId });
         }
 
         [HttpPost]
         public async Task<IActionResult> AddQuestionnaire(QuestionnaireModel model, int newId)
         {
 
-
+            model.QuestionnaireId = newId;
             if (ModelState.IsValid)
             {
 
