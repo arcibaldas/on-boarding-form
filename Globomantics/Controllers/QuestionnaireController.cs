@@ -31,11 +31,12 @@ namespace Globomantics.Controllers
         {
 
             model.QuestionnaireId = newId;
+            model.isSubmitted = false;
             if (ModelState.IsValid)
             {
 
                 await questionnaireService.AddQuestionnaire(model, newId);
-
+                model.isSubmitted = true;
                 return View(model);
             }
             else

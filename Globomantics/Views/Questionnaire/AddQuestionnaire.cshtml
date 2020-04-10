@@ -15,11 +15,6 @@
             </p>
         </div>
         <div class="col-md-9 register-right">
-            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">Questionnaire</a>
-                </li>
-            </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Company Questionnaire</h3>
@@ -197,11 +192,21 @@
                                 </div>
                             }
 
+
+
+                            @if (!Model.Services && Model.isSubmitted)
+                            {
+                                <div class="alert alert-info">
+                                    <strong>Congratulations! Information about the company is confirmed. Wait for additional information in you email box</strong>
+                                </div>
+
+                                <input type="submit" class="btnRegister" value="End registration" asp-controller="Company" asp-action="Index" />
+                            }
+
                             else
                             {
                                 <input type="submit" class="btnRegister" value="Submit" />
                             }
-
                         </div>
                     </form>
                 </div>

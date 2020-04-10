@@ -57,7 +57,10 @@ namespace Shared.Models
         public string BussinessAccounts { get; set; }
 
         public string AmlProcedure { get; set; }
+
+        public bool isSubmitted { get; set; } = false;
     }
+
 
 
 }

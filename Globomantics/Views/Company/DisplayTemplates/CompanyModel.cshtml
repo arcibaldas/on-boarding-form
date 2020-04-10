@@ -1,14 +1,7 @@
 ﻿
 @model Shared.Models.CompanyModel
-@if (Model.isSubmitted)
-{
-    <div class="alert alert-info">
-        <strong>Congratulations! Information about the company is confirmed. Wait for additional information in you email box</strong>
-    </div>
-}
 
-@*else
-{
+
     <tr>
         <td>@Model.Name @Model.Surname</td>
         <td>@Model.Citizenship</td>
@@ -35,4 +28,3 @@
         </td>
 
     </tr>
-}*@
