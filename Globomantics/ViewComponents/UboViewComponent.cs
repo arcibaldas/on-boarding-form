@@ -14,10 +14,9 @@ namespace WebApp.ViewComponents
             this.service = service;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string statsCaption)
+        public async Task<IViewComponentResult> InvokeAsync()
         {
            
-            ViewBag.Caption = statsCaption;
             return View(await service.GetAll());
         }
     }

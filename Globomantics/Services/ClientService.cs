@@ -35,10 +35,15 @@ namespace Globomantics.Services
         }
 
         
-        public Task<IEnumerable<ClientModel>> Delete(ClientModel model)
+        public Task<ClientModel> Delete(string personal)
         {
-            clients.Remove(model);
-            return Task.Run(() => clients.AsEnumerable());
+            return Task.Run(() =>
+            {
+                var ubo= clients.First(p => p.Email == personal);
+                ubo.Disabled = true;
+                return ubo;
+            });
+
         }
 
         public Task<IEnumerable<ClientModel>> GetAll()

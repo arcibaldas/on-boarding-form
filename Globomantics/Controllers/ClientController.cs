@@ -22,14 +22,14 @@ namespace Globomantics.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.Title = "Conferences";
+            ViewBag.Title = "Companies";
             return PartialView(await clientService.GetAll());
         }
 
         public IActionResult AddCompanyUBO(int newId)
         {
 
-            ViewBag.Title = "Add Company";
+            ViewBag.Title = "Add Company UBO";
             return View(new ClientModel{ UboId = newId,ClientCounter = newId });
         }
 
@@ -56,7 +56,7 @@ namespace Globomantics.Controllers
         public IActionResult AddCompanyCEO(int newId)
         {
 
-            ViewBag.Title = "Add Company";
+            ViewBag.Title = "Add Company CEO";
             return View(new ClientModel { CeoId = newId });
         }
 
@@ -76,11 +76,10 @@ namespace Globomantics.Controllers
                 return View(model);
             }
         }
-
-        public async Task<IActionResult> Delete(ClientModel model)
+        public async Task<IActionResult> Delete(string personal)
         {
-            if (ModelState.IsValid)
-                await clientService.Delete(model);
+            
+                await clientService.Delete(personal);
 
             return RedirectToAction("AddCompanyUBO");
         }

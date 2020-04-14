@@ -1,18 +1,14 @@
-﻿
-@model Shared.Models.ClientModel     
-    <tr>
-        @if (Model.UboId != 0)
-        {
-            @if ((Model.UboId) == (Model.ClientCounter))
-            { 
-            <td>@Model.Name @Model.Surname</td>
-            <td>@Model.PersonalCode</td>
-            <td>@Model.BirthDate.ToString("ddd d MMM")</td>
-            <td>@Model.Citizenship</td>
-            <td>@Model.Email</td>
-            <td>
-                <a asp-controller="Client" asp-action="Delete">Delete</a>
-            </td>
-            }
-        }
-    </tr>
+﻿@using Microsoft.Extensions.Options
+@model Shared.Models.ClientModel
+<tr>
+    
+        <td>@Model.Name @Model.Surname</td>
+        <td>@Model.PersonalCode</td>
+        <td>@Model.BirthDate.ToString("ddd d MMM")</td>
+        <td>@Model.Citizenship</td>
+        <td>@Model.Email</td>
+        <td>
+            <a asp-action="Delete" asp-route-proposal="@Model.Email">Delete</a>
+        </td>
+    
+</tr>

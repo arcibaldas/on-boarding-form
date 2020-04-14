@@ -35,7 +35,7 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert country code")]
-        [MinLength(3, ErrorMessage = "Name is too short")]
+        [MinLength(2, ErrorMessage = "Name is too short")]
         public string LegalCountryCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
@@ -50,7 +50,7 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "House number is invalid")]
-        [Range(0, 99999999999, ErrorMessage = "Personal code is too short")]
+        [Range(0, 99999999999, ErrorMessage = "House number is too short")]
         public string LegalHouseNumber { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
@@ -64,7 +64,7 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert country code")]
-        [MinLength(3, ErrorMessage = "Name is too short")]
+        [MinLength(2, ErrorMessage = "Name is too short")]
         public string PhysicalCountryCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
@@ -79,7 +79,7 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "House number is invalid")]
-        [Range(0, 99999999999, ErrorMessage = "Personal code is too short")]
+        [Range(0, 99999999999, ErrorMessage = "House number is too short")]
         public string PhysicalHouseNumber { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
@@ -87,8 +87,8 @@ namespace Shared.Models
         public string PhysicalPostalCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
-        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Personal code is invalid")]
-        [Range(10000000000, 99999999999, ErrorMessage = "Registration code is too short")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Registration code is invalid")]
+        [Range(10000000000, 99999999999, ErrorMessage = "Registration code is too short (11 digits)")]
         public long RegistrationCode { get; set; }
         
         public DateTime IncorporationDate { get; set; }

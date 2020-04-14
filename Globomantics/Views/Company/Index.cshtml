@@ -2,21 +2,20 @@
 @model IEnumerable<CompanyModel>
 
 
-    <div class="row center">
-
-        <img asp-append-version="true" alt="Logo" src="~/img/nasa.png" style="max-width:100%" />
-
-        <div class="login-form">
-            <form>
-                <h2 class="text-center">On boarding</h2>
-                <div class="form-group">
-                    <button type="submit" asp-action="AddCompanyRepresentative" class="btn btn-primary btn-block">Register new users and company</button>
-                </div>
-
-            </form>
-            <div class="form-group">
-                <button type="submit" class="btn btn-link"><a asp-action="Tables">Check tables</a></button>
-            </div>
+    <div class="centered">
+        <div class="col-12 text-center d-sm-none" bis_skin_checked="1">
+            <img asp-append-version="true" alt="Logo" src="~/img/nasa.png" style="max-width:100%" />
         </div>
-    </div>
 
+
+        <form class="card">
+            <h2 class="text-center">On boarding</h2> <br />
+            <div class="form-footer" bis_skin_checked="1">
+                <button type="submit" name="button" class="btn btn-primary btn-block" asp-action="AddCompanyRepresentative">Register new users and company</button>
+            </div>
+            <br />
+            <div class="form-footer" bis_skin_checked="1">
+                <button type="submit" name="button" class="btn btn-primary btn-block" asp-action="Tables">Check tables</button>
+            </div>
+        </form>
+    </div>

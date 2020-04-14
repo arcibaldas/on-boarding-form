@@ -11,7 +11,7 @@ namespace Globomantics.Services
 
         Task AddCompanyCEO(ClientModel model, int newId);
         Task AddCompanyUBO(ClientModel model, int newId);
-        Task<IEnumerable<ClientModel>> Delete(ClientModel model);
+        Task<ClientModel> Delete(string personal);
 
 
     }

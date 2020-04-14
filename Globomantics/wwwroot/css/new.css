@@ -161,3 +161,9 @@
     margin-top:10%;
 }
 
+.centered {
+    
+    width: 80%;
+    margin: 0 auto;
+
+}

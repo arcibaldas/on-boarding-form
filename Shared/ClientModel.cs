@@ -42,7 +42,7 @@ namespace Shared.Models
 
         [Required(ErrorMessage = "The field is required")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please insert country code")]
-        [MinLength(3, ErrorMessage = "Name is too short")]
+        [MinLength(2, ErrorMessage = "Name is too short")]
         public string CountryCode { get; set; }
 
         [Required(ErrorMessage = "The field is required")]
@@ -99,5 +99,6 @@ namespace Shared.Models
         
         public int ClientCounter { get; set; }
 
+        public bool Disabled { get; set; } = false;
     }
 }
