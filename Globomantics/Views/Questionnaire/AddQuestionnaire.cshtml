@@ -194,7 +194,7 @@
 
 
 
-                            @if (!Model.Services && Model.isSubmitted)
+                            @if (!Model.Services && Model.isSubmitted || Model.Services && Model.isSubmitted)
                             {
                                 <div class="alert alert-info">
                                     <strong>Congratulations! Information about the company is confirmed. Wait for additional information in you email box</strong>

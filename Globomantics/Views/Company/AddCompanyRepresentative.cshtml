@@ -44,6 +44,7 @@
                                     <input asp-for="@Model.Name" type="text" class="form-control" placeholder="First Name *" />
                                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                                 </div>
+                               
                                 <div class="form-group">
                                     <input asp-for="@Model.Surname" type="text" class="form-control" placeholder="Last Name *" />
                                     @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
@@ -59,34 +60,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label asp-for="Citizenship" class="form-label">Citizenship</label>
-                                    <select asp-for="Citizenship " class="form-control custom-select">
-                                        <option value='Ascension Island'>Ascension Island</option>
-                                        <option value='Andorra'>Andorra</option>
-                                        <option value='United Arab Emirates'>United Arab Emirates</option>
-                                        <option value='Afghanistan'>Afghanistan</option>
-                                        <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
-                                        <option value='Anguilla'>Anguilla</option>
-                                        <option value='Albania'>Albania</option>
-                                        <option value='Armenia'>Armenia</option>
-                                        <option value='Angola'>Angola</option>
-                                        <option value='Antarctica'>Antarctica</option>
+                                    <label asp-for="@Model.Citizenship" class="form-label">Citizenship</label>
+                                    <select asp-for="@Model.Citizenship" asp-items="@Model.Countries" class="form-control custom-select">
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label asp-for="@Model.CountryOfResidence class=" form-label">Country of residence</label>
-                                    <select asp-for="@Model.CountryOfResidence " class="form-control custom-select">
-                                        <option value='Ascension Island'>Ascension Island</option>
-                                        <option value='Andorra'>Andorra</option>
-                                        <option value='United Arab Emirates'>United Arab Emirates</option>
-                                        <option value='Afghanistan'>Afghanistan</option>
-                                        <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
-                                        <option value='Anguilla'>Anguilla</option>
-                                        <option value='Albania'>Albania</option>
-                                        <option value='Armenia'>Armenia</option>
-                                        <option value='Angola'>Angola</option>
-                                        <option value='Antarctica'>Antarctica</option>
+                                    <select asp-for="@Model.CountryOfResidence " asp-items="@Model.Countries"class="form-control custom-select">
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -189,17 +170,7 @@
 
                                 <div class="form-group">
                                     <label asp-for="@Model.CountryOfRegistration class=" form-label">Country of registration</label>
-                                    <select asp-for="@Model.CountryOfRegistration " class="form-control custom-select">
-                                        <option value='Ascension Island'>Ascension Island</option>
-                                        <option value='Andorra'>Andorra</option>
-                                        <option value='United Arab Emirates'>United Arab Emirates</option>
-                                        <option value='Afghanistan'>Afghanistan</option>
-                                        <option value='Antigua And Barbuda'>Antigua And Barbuda</option>
-                                        <option value='Anguilla'>Anguilla</option>
-                                        <option value='Albania'>Albania</option>
-                                        <option value='Armenia'>Armenia</option>
-                                        <option value='Angola'>Angola</option>
-                                        <option value='Antarctica'>Antarctica</option>
+                                    <select asp-for="@Model.CountryOfRegistration " asp-items="@Model.Countries" class="form-control custom-select">
                                     </select>
                                 </div>
 
